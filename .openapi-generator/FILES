@@ -4,10 +4,15 @@ README.md
 api.module.ts
 api/api.ts
 api/hosts.service.ts
+api/hosts.serviceInterface.ts
 api/organisations.service.ts
+api/organisations.serviceInterface.ts
 api/projects.service.ts
+api/projects.serviceInterface.ts
 api/secrets.service.ts
+api/secrets.serviceInterface.ts
 api/tokens.service.ts
+api/tokens.serviceInterface.ts
 configuration.ts
 encoder.ts
 git_push.sh
@@ -56,5 +61,8 @@ model/secretRegistry.ts
 model/secretResponse.ts
 model/secretResponsePayload.ts
 model/unauthorisedResponse.ts
+ng-package.json
+package.json
 param.ts
+tsconfig.json
 variables.ts

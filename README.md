@@ -1,4 +1,4 @@
-## @
+## openapi-chaos-typescript-angular-client@1.0.0
 
 ### Building
 
@@ -19,7 +19,7 @@ Navigate to the folder of your consuming project and run one of next commands.
 _published:_
 
 ```
-npm install @ --save
+npm install openapi-chaos-typescript-angular-client@1.0.0 --save
 ```
 
 _without publishing (not recommended):_
@@ -39,7 +39,7 @@ npm link
 
 In your project:
 ```
-npm link 
+npm link openapi-chaos-typescript-angular-client
 ```
 
 __Note for Windows users:__ The Angular CLI has troubles to use linked npm packages.
@@ -54,12 +54,12 @@ In your Angular project:
 
 ```
 // without configuring providers
-import { ApiModule } from '';
+import { ChaosApiModule } from 'openapi-chaos-typescript-angular-client';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     imports: [
-        ApiModule,
+        ChaosApiModule,
         // make sure to import the HttpClientModule in the AppModule only,
         // see https://github.com/angular/angular/issues/20575
         HttpClientModule
@@ -73,7 +73,7 @@ export class AppModule {}
 
 ```
 // configuring providers
-import { ApiModule, Configuration, ConfigurationParameters } from '';
+import { ChaosApiModule, Configuration, ConfigurationParameters } from 'openapi-chaos-typescript-angular-client';
 
 export function apiConfigFactory (): Configuration {
   const params: ConfigurationParameters = {
@@ -83,7 +83,7 @@ export function apiConfigFactory (): Configuration {
 }
 
 @NgModule({
-    imports: [ ApiModule.forRoot(apiConfigFactory) ],
+    imports: [ ChaosApiModule.forRoot(apiConfigFactory) ],
     declarations: [ AppComponent ],
     providers: [],
     bootstrap: [ AppComponent ]
@@ -93,10 +93,10 @@ export class AppModule {}
 
 ```
 // configuring providers with an authentication service that manages your access tokens
-import { ApiModule, Configuration } from '';
+import { ChaosApiModule, Configuration } from 'openapi-chaos-typescript-angular-client';
 
 @NgModule({
-    imports: [ ApiModule ],
+    imports: [ ChaosApiModule ],
     declarations: [ AppComponent ],
     providers: [
       {
@@ -117,28 +117,28 @@ export class AppModule {}
 ```
 
 ```
-import { DefaultApi } from '';
+import { DefaultApi } from 'openapi-chaos-typescript-angular-client';
 
 export class AppComponent {
     constructor(private apiGateway: DefaultApi) { }
 }
 ```
 
-Note: The ApiModule is restricted to being instantiated once app wide.
+Note: The ChaosApiModule is restricted to being instantiated once app wide.
 This is to ensure that all services are treated as singletons.
 
-#### Using multiple OpenAPI files / APIs / ApiModules
-In order to use multiple `ApiModules` generated from different OpenAPI files,
+#### Using multiple OpenAPI files / APIs / ChaosApiModules
+In order to use multiple `ChaosApiModules` generated from different OpenAPI files,
 you can create an alias name when importing the modules
 in order to avoid naming conflicts:
 ```
-import { ApiModule } from 'my-api-path';
-import { ApiModule as OtherApiModule } from 'my-other-api-path';
+import { ChaosApiModule } from 'my-api-path';
+import { ChaosApiModule as OtherApiModule } from 'my-other-api-path';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
-    ApiModule,
+    ChaosApiModule,
     OtherApiModule,
     // make sure to import the HttpClientModule in the AppModule only,
     // see https://github.com/angular/angular/issues/20575
@@ -155,7 +155,7 @@ export class AppModule {
 If different than the generated base path, during app bootstrap, you can provide the base path to your service.
 
 ```
-import { BASE_PATH } from '';
+import { BASE_PATH } from 'openapi-chaos-typescript-angular-client';
 
 bootstrap(AppComponent, [
     { provide: BASE_PATH, useValue: 'https://your-web-service.com' },
@@ -164,7 +164,7 @@ bootstrap(AppComponent, [
 or
 
 ```
-import { BASE_PATH } from '';
+import { BASE_PATH } from 'openapi-chaos-typescript-angular-client';
 
 @NgModule({
     imports: [],
@@ -188,7 +188,7 @@ export const environment = {
 
 In the src/app/app.module.ts:
 ```
-import { BASE_PATH } from '';
+import { BASE_PATH } from 'openapi-chaos-typescript-angular-client';
 import { environment } from '../environments/environment';
 
 @NgModule({

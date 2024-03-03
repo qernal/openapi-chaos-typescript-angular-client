@@ -40,13 +40,16 @@ import { OrganisationsListPageParameter } from '../model/organisationsListPagePa
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
+import {
+    HostsServiceInterface
+} from './hosts.serviceInterface';
 
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class HostsService {
+export class HostsService implements HostsServiceInterface {
 
     protected basePath = 'https://chaos.qernal.com/v1';
     public defaultHeaders = new HttpHeaders();
@@ -115,10 +118,10 @@ export class HostsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public projectsHostsCreate(project_id: string, HostBody: HostBody, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<Host>;
-    public projectsHostsCreate(project_id: string, HostBody: HostBody, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Host>>;
-    public projectsHostsCreate(project_id: string, HostBody: HostBody, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Host>>;
-    public projectsHostsCreate(project_id: string, HostBody: HostBody, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public projectsHostsCreate(project_id: string, HostBody: HostBody, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Host>;
+    public projectsHostsCreate(project_id: string, HostBody: HostBody, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Host>>;
+    public projectsHostsCreate(project_id: string, HostBody: HostBody, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Host>>;
+    public projectsHostsCreate(project_id: string, HostBody: HostBody, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (project_id === null || project_id === undefined) {
             throw new Error('Required parameter project_id was null or undefined when calling projectsHostsCreate.');
         }
@@ -157,11 +160,6 @@ export class HostsService {
             localVarHttpContext = new HttpContext();
         }
 
-        let localVarTransferCache: boolean | undefined = options && options.transferCache;
-        if (localVarTransferCache === undefined) {
-            localVarTransferCache = true;
-        }
-
 
         // to determine the Content-Type header
         const consumes: string[] = [
@@ -192,7 +190,6 @@ export class HostsService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
-                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -205,10 +202,10 @@ export class HostsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public projectsHostsDelete(project_id: string, hostname: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<DeletedResponse>;
-    public projectsHostsDelete(project_id: string, hostname: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<DeletedResponse>>;
-    public projectsHostsDelete(project_id: string, hostname: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<DeletedResponse>>;
-    public projectsHostsDelete(project_id: string, hostname: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public projectsHostsDelete(project_id: string, hostname: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<DeletedResponse>;
+    public projectsHostsDelete(project_id: string, hostname: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<DeletedResponse>>;
+    public projectsHostsDelete(project_id: string, hostname: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<DeletedResponse>>;
+    public projectsHostsDelete(project_id: string, hostname: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (project_id === null || project_id === undefined) {
             throw new Error('Required parameter project_id was null or undefined when calling projectsHostsDelete.');
         }
@@ -247,11 +244,6 @@ export class HostsService {
             localVarHttpContext = new HttpContext();
         }
 
-        let localVarTransferCache: boolean | undefined = options && options.transferCache;
-        if (localVarTransferCache === undefined) {
-            localVarTransferCache = true;
-        }
-
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -272,7 +264,6 @@ export class HostsService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
-                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -285,10 +276,10 @@ export class HostsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public projectsHostsGet(project_id: string, hostname: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<Host>;
-    public projectsHostsGet(project_id: string, hostname: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Host>>;
-    public projectsHostsGet(project_id: string, hostname: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Host>>;
-    public projectsHostsGet(project_id: string, hostname: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public projectsHostsGet(project_id: string, hostname: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Host>;
+    public projectsHostsGet(project_id: string, hostname: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Host>>;
+    public projectsHostsGet(project_id: string, hostname: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Host>>;
+    public projectsHostsGet(project_id: string, hostname: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (project_id === null || project_id === undefined) {
             throw new Error('Required parameter project_id was null or undefined when calling projectsHostsGet.');
         }
@@ -327,11 +318,6 @@ export class HostsService {
             localVarHttpContext = new HttpContext();
         }
 
-        let localVarTransferCache: boolean | undefined = options && options.transferCache;
-        if (localVarTransferCache === undefined) {
-            localVarTransferCache = true;
-        }
-
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -352,7 +338,6 @@ export class HostsService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
-                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -365,10 +350,10 @@ export class HostsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public projectsHostsList(project_id: string, page?: OrganisationsListPageParameter, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<ListHosts>;
-    public projectsHostsList(project_id: string, page?: OrganisationsListPageParameter, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ListHosts>>;
-    public projectsHostsList(project_id: string, page?: OrganisationsListPageParameter, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ListHosts>>;
-    public projectsHostsList(project_id: string, page?: OrganisationsListPageParameter, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public projectsHostsList(project_id: string, page?: OrganisationsListPageParameter, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<ListHosts>;
+    public projectsHostsList(project_id: string, page?: OrganisationsListPageParameter, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<ListHosts>>;
+    public projectsHostsList(project_id: string, page?: OrganisationsListPageParameter, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<ListHosts>>;
+    public projectsHostsList(project_id: string, page?: OrganisationsListPageParameter, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (project_id === null || project_id === undefined) {
             throw new Error('Required parameter project_id was null or undefined when calling projectsHostsList.');
         }
@@ -410,11 +395,6 @@ export class HostsService {
             localVarHttpContext = new HttpContext();
         }
 
-        let localVarTransferCache: boolean | undefined = options && options.transferCache;
-        if (localVarTransferCache === undefined) {
-            localVarTransferCache = true;
-        }
-
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -436,7 +416,6 @@ export class HostsService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
-                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -450,10 +429,10 @@ export class HostsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public projectsHostsUpdate(project_id: string, hostname: string, HostBodyPatch: HostBodyPatch, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<Host>;
-    public projectsHostsUpdate(project_id: string, hostname: string, HostBodyPatch: HostBodyPatch, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Host>>;
-    public projectsHostsUpdate(project_id: string, hostname: string, HostBodyPatch: HostBodyPatch, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Host>>;
-    public projectsHostsUpdate(project_id: string, hostname: string, HostBodyPatch: HostBodyPatch, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public projectsHostsUpdate(project_id: string, hostname: string, HostBodyPatch: HostBodyPatch, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Host>;
+    public projectsHostsUpdate(project_id: string, hostname: string, HostBodyPatch: HostBodyPatch, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Host>>;
+    public projectsHostsUpdate(project_id: string, hostname: string, HostBodyPatch: HostBodyPatch, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Host>>;
+    public projectsHostsUpdate(project_id: string, hostname: string, HostBodyPatch: HostBodyPatch, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (project_id === null || project_id === undefined) {
             throw new Error('Required parameter project_id was null or undefined when calling projectsHostsUpdate.');
         }
@@ -495,11 +474,6 @@ export class HostsService {
             localVarHttpContext = new HttpContext();
         }
 
-        let localVarTransferCache: boolean | undefined = options && options.transferCache;
-        if (localVarTransferCache === undefined) {
-            localVarTransferCache = true;
-        }
-
 
         // to determine the Content-Type header
         const consumes: string[] = [
@@ -530,7 +504,6 @@ export class HostsService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
-                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -543,10 +516,10 @@ export class HostsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public projectsHostsVerifyCreate(project_id: string, hostname: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<Host>;
-    public projectsHostsVerifyCreate(project_id: string, hostname: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Host>>;
-    public projectsHostsVerifyCreate(project_id: string, hostname: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Host>>;
-    public projectsHostsVerifyCreate(project_id: string, hostname: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public projectsHostsVerifyCreate(project_id: string, hostname: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Host>;
+    public projectsHostsVerifyCreate(project_id: string, hostname: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Host>>;
+    public projectsHostsVerifyCreate(project_id: string, hostname: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Host>>;
+    public projectsHostsVerifyCreate(project_id: string, hostname: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (project_id === null || project_id === undefined) {
             throw new Error('Required parameter project_id was null or undefined when calling projectsHostsVerifyCreate.');
         }
@@ -585,11 +558,6 @@ export class HostsService {
             localVarHttpContext = new HttpContext();
         }
 
-        let localVarTransferCache: boolean | undefined = options && options.transferCache;
-        if (localVarTransferCache === undefined) {
-            localVarTransferCache = true;
-        }
-
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -610,7 +578,6 @@ export class HostsService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
-                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
