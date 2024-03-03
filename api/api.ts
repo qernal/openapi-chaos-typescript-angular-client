@@ -1,0 +1,11 @@
+export * from './hosts.service';
+import { HostsService } from './hosts.service';
+export * from './organisations.service';
+import { OrganisationsService } from './organisations.service';
+export * from './projects.service';
+import { ProjectsService } from './projects.service';
+export * from './secrets.service';
+import { SecretsService } from './secrets.service';
+export * from './tokens.service';
+import { TokensService } from './tokens.service';
+export const APIS = [HostsService, OrganisationsService, ProjectsService, SecretsService, TokensService];
