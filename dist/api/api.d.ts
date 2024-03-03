@@ -1,0 +1,16 @@
+export * from './hosts.service';
+import { HostsService } from './hosts.service';
+export * from './hosts.serviceInterface';
+export * from './organisations.service';
+import { OrganisationsService } from './organisations.service';
+export * from './organisations.serviceInterface';
+export * from './projects.service';
+import { ProjectsService } from './projects.service';
+export * from './projects.serviceInterface';
+export * from './secrets.service';
+import { SecretsService } from './secrets.service';
+export * from './secrets.serviceInterface';
+export * from './tokens.service';
+import { TokensService } from './tokens.service';
+export * from './tokens.serviceInterface';
+export declare const APIS: (typeof HostsService | typeof OrganisationsService | typeof ProjectsService | typeof SecretsService | typeof TokensService)[];
