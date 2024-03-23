@@ -207,7 +207,7 @@ class HostsService {
     // @ts-ignore
     addToHttpParams(httpParams, value, key) {
         if (typeof value === "object" && value instanceof Date === false) {
-            httpParams = this.addToHttpParamsRecursive(httpParams, value);
+            httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
         }
         else {
             httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
@@ -231,7 +231,7 @@ class HostsService {
                 }
             }
             else {
-                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}.${k}` : k));
+                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}[${k}]` : k));
             }
         }
         else if (key != null) {
@@ -649,7 +649,7 @@ class OrganisationsService {
     // @ts-ignore
     addToHttpParams(httpParams, value, key) {
         if (typeof value === "object" && value instanceof Date === false) {
-            httpParams = this.addToHttpParamsRecursive(httpParams, value);
+            httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
         }
         else {
             httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
@@ -673,7 +673,7 @@ class OrganisationsService {
                 }
             }
             else {
-                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}.${k}` : k));
+                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}[${k}]` : k));
             }
         }
         else if (key != null) {
@@ -1015,7 +1015,7 @@ class ProjectsService {
     // @ts-ignore
     addToHttpParams(httpParams, value, key) {
         if (typeof value === "object" && value instanceof Date === false) {
-            httpParams = this.addToHttpParamsRecursive(httpParams, value);
+            httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
         }
         else {
             httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
@@ -1039,7 +1039,7 @@ class ProjectsService {
                 }
             }
             else {
-                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}.${k}` : k));
+                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}[${k}]` : k));
             }
         }
         else if (key != null) {
@@ -1438,7 +1438,7 @@ class SecretsService {
     // @ts-ignore
     addToHttpParams(httpParams, value, key) {
         if (typeof value === "object" && value instanceof Date === false) {
-            httpParams = this.addToHttpParamsRecursive(httpParams, value);
+            httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
         }
         else {
             httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
@@ -1462,7 +1462,7 @@ class SecretsService {
                 }
             }
             else {
-                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}.${k}` : k));
+                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}[${k}]` : k));
             }
         }
         else if (key != null) {
@@ -1828,7 +1828,7 @@ class TokensService {
     // @ts-ignore
     addToHttpParams(httpParams, value, key) {
         if (typeof value === "object" && value instanceof Date === false) {
-            httpParams = this.addToHttpParamsRecursive(httpParams, value);
+            httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
         }
         else {
             httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
@@ -1852,7 +1852,7 @@ class TokensService {
                 }
             }
             else {
-                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}.${k}` : k));
+                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}[${k}]` : k));
             }
         }
         else if (key != null) {
