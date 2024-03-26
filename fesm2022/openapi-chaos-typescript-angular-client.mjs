@@ -182,6 +182,496 @@ class Configuration {
  * Do not edit the class manually.
  */
 /* tslint:disable:no-unused-variable member-ordering */
+class FunctionsService {
+    httpClient;
+    basePath = 'https://chaos.qernal.com/v1';
+    defaultHeaders = new HttpHeaders();
+    configuration = new Configuration();
+    encoder;
+    constructor(httpClient, basePath, configuration) {
+        this.httpClient = httpClient;
+        if (configuration) {
+            this.configuration = configuration;
+        }
+        if (typeof this.configuration.basePath !== 'string') {
+            if (Array.isArray(basePath) && basePath.length > 0) {
+                basePath = basePath[0];
+            }
+            if (typeof basePath !== 'string') {
+                basePath = this.basePath;
+            }
+            this.configuration.basePath = basePath;
+        }
+        this.encoder = this.configuration.encoder || new CustomHttpParameterCodec();
+    }
+    // @ts-ignore
+    addToHttpParams(httpParams, value, key) {
+        if (typeof value === "object" && value instanceof Date === false) {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
+        }
+        else {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
+        }
+        return httpParams;
+    }
+    addToHttpParamsRecursive(httpParams, value, key) {
+        if (value == null) {
+            return httpParams;
+        }
+        if (typeof value === "object") {
+            if (Array.isArray(value)) {
+                value.forEach(elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
+            }
+            else if (value instanceof Date) {
+                if (key != null) {
+                    httpParams = httpParams.append(key, value.toISOString().substring(0, 10));
+                }
+                else {
+                    throw Error("key may not be null if value is Date");
+                }
+            }
+            else {
+                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}[${k}]` : k));
+            }
+        }
+        else if (key != null) {
+            httpParams = httpParams.append(key, value);
+        }
+        else {
+            throw Error("key may not be null if value is not object or array");
+        }
+        return httpParams;
+    }
+    functionsDelete(function_id, observe = 'body', reportProgress = false, options) {
+        if (function_id === null || function_id === undefined) {
+            throw new Error('Required parameter function_id was null or undefined when calling functionsDelete.');
+        }
+        let localVarHeaders = this.defaultHeaders;
+        let localVarCredential;
+        // authentication (cookie) required
+        localVarCredential = this.configuration.lookupCredential('cookie');
+        if (localVarCredential) {
+        }
+        // authentication (token) required
+        localVarCredential = this.configuration.lookupCredential('token');
+        if (localVarCredential) {
+            localVarHeaders = localVarHeaders.set('Authorization', 'Bearer ' + localVarCredential);
+        }
+        let localVarHttpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+        let localVarHttpContext = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+        let responseType_ = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            }
+            else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            }
+            else {
+                responseType_ = 'blob';
+            }
+        }
+        let localVarPath = `/functions/${this.configuration.encodeParam({ name: "function_id", value: function_id, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: "uuid" })}`;
+        return this.httpClient.request('delete', `${this.configuration.basePath}${localVarPath}`, {
+            context: localVarHttpContext,
+            responseType: responseType_,
+            withCredentials: this.configuration.withCredentials,
+            headers: localVarHeaders,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    functionsGet(function_id, observe = 'body', reportProgress = false, options) {
+        if (function_id === null || function_id === undefined) {
+            throw new Error('Required parameter function_id was null or undefined when calling functionsGet.');
+        }
+        let localVarHeaders = this.defaultHeaders;
+        let localVarCredential;
+        // authentication (cookie) required
+        localVarCredential = this.configuration.lookupCredential('cookie');
+        if (localVarCredential) {
+        }
+        // authentication (token) required
+        localVarCredential = this.configuration.lookupCredential('token');
+        if (localVarCredential) {
+            localVarHeaders = localVarHeaders.set('Authorization', 'Bearer ' + localVarCredential);
+        }
+        let localVarHttpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+        let localVarHttpContext = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+        let responseType_ = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            }
+            else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            }
+            else {
+                responseType_ = 'blob';
+            }
+        }
+        let localVarPath = `/functions/${this.configuration.encodeParam({ name: "function_id", value: function_id, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: "uuid" })}`;
+        return this.httpClient.request('get', `${this.configuration.basePath}${localVarPath}`, {
+            context: localVarHttpContext,
+            responseType: responseType_,
+            withCredentials: this.configuration.withCredentials,
+            headers: localVarHeaders,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    functionsRevisionsGet(function_id, function_revision_id, observe = 'body', reportProgress = false, options) {
+        if (function_id === null || function_id === undefined) {
+            throw new Error('Required parameter function_id was null or undefined when calling functionsRevisionsGet.');
+        }
+        if (function_revision_id === null || function_revision_id === undefined) {
+            throw new Error('Required parameter function_revision_id was null or undefined when calling functionsRevisionsGet.');
+        }
+        let localVarHeaders = this.defaultHeaders;
+        let localVarCredential;
+        // authentication (cookie) required
+        localVarCredential = this.configuration.lookupCredential('cookie');
+        if (localVarCredential) {
+        }
+        // authentication (token) required
+        localVarCredential = this.configuration.lookupCredential('token');
+        if (localVarCredential) {
+            localVarHeaders = localVarHeaders.set('Authorization', 'Bearer ' + localVarCredential);
+        }
+        let localVarHttpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+        let localVarHttpContext = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+        let responseType_ = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            }
+            else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            }
+            else {
+                responseType_ = 'blob';
+            }
+        }
+        let localVarPath = `/functions/${this.configuration.encodeParam({ name: "function_id", value: function_id, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: "uuid" })}/revisions/${this.configuration.encodeParam({ name: "function_revision_id", value: function_revision_id, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: "uuid" })}`;
+        return this.httpClient.request('get', `${this.configuration.basePath}${localVarPath}`, {
+            context: localVarHttpContext,
+            responseType: responseType_,
+            withCredentials: this.configuration.withCredentials,
+            headers: localVarHeaders,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    functionsRevisionsList(function_id, page, observe = 'body', reportProgress = false, options) {
+        if (function_id === null || function_id === undefined) {
+            throw new Error('Required parameter function_id was null or undefined when calling functionsRevisionsList.');
+        }
+        let localVarQueryParameters = new HttpParams({ encoder: this.encoder });
+        if (page !== undefined && page !== null) {
+            localVarQueryParameters = this.addToHttpParams(localVarQueryParameters, page, 'page');
+        }
+        let localVarHeaders = this.defaultHeaders;
+        let localVarCredential;
+        // authentication (cookie) required
+        localVarCredential = this.configuration.lookupCredential('cookie');
+        if (localVarCredential) {
+        }
+        // authentication (token) required
+        localVarCredential = this.configuration.lookupCredential('token');
+        if (localVarCredential) {
+            localVarHeaders = localVarHeaders.set('Authorization', 'Bearer ' + localVarCredential);
+        }
+        let localVarHttpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+        let localVarHttpContext = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+        let responseType_ = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            }
+            else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            }
+            else {
+                responseType_ = 'blob';
+            }
+        }
+        let localVarPath = `/functions/${this.configuration.encodeParam({ name: "function_id", value: function_id, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: "uuid" })}/revisions`;
+        return this.httpClient.request('get', `${this.configuration.basePath}${localVarPath}`, {
+            context: localVarHttpContext,
+            params: localVarQueryParameters,
+            responseType: responseType_,
+            withCredentials: this.configuration.withCredentials,
+            headers: localVarHeaders,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    functionsUpdate(function_id, Function, observe = 'body', reportProgress = false, options) {
+        if (function_id === null || function_id === undefined) {
+            throw new Error('Required parameter function_id was null or undefined when calling functionsUpdate.');
+        }
+        if (Function === null || Function === undefined) {
+            throw new Error('Required parameter Function was null or undefined when calling functionsUpdate.');
+        }
+        let localVarHeaders = this.defaultHeaders;
+        let localVarCredential;
+        // authentication (cookie) required
+        localVarCredential = this.configuration.lookupCredential('cookie');
+        if (localVarCredential) {
+        }
+        // authentication (token) required
+        localVarCredential = this.configuration.lookupCredential('token');
+        if (localVarCredential) {
+            localVarHeaders = localVarHeaders.set('Authorization', 'Bearer ' + localVarCredential);
+        }
+        let localVarHttpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+        let localVarHttpContext = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType_ = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            }
+            else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            }
+            else {
+                responseType_ = 'blob';
+            }
+        }
+        let localVarPath = `/functions/${this.configuration.encodeParam({ name: "function_id", value: function_id, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: "uuid" })}`;
+        return this.httpClient.request('put', `${this.configuration.basePath}${localVarPath}`, {
+            context: localVarHttpContext,
+            body: Function,
+            responseType: responseType_,
+            withCredentials: this.configuration.withCredentials,
+            headers: localVarHeaders,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    projectsFunctionsCreate(project_id, FunctionBody, observe = 'body', reportProgress = false, options) {
+        if (project_id === null || project_id === undefined) {
+            throw new Error('Required parameter project_id was null or undefined when calling projectsFunctionsCreate.');
+        }
+        if (FunctionBody === null || FunctionBody === undefined) {
+            throw new Error('Required parameter FunctionBody was null or undefined when calling projectsFunctionsCreate.');
+        }
+        let localVarHeaders = this.defaultHeaders;
+        let localVarCredential;
+        // authentication (cookie) required
+        localVarCredential = this.configuration.lookupCredential('cookie');
+        if (localVarCredential) {
+        }
+        // authentication (token) required
+        localVarCredential = this.configuration.lookupCredential('token');
+        if (localVarCredential) {
+            localVarHeaders = localVarHeaders.set('Authorization', 'Bearer ' + localVarCredential);
+        }
+        let localVarHttpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+        let localVarHttpContext = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType_ = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            }
+            else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            }
+            else {
+                responseType_ = 'blob';
+            }
+        }
+        let localVarPath = `/projects/${this.configuration.encodeParam({ name: "project_id", value: project_id, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: "uuid" })}/functions`;
+        return this.httpClient.request('post', `${this.configuration.basePath}${localVarPath}`, {
+            context: localVarHttpContext,
+            body: FunctionBody,
+            responseType: responseType_,
+            withCredentials: this.configuration.withCredentials,
+            headers: localVarHeaders,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    projectsFunctionsList(project_id, page, observe = 'body', reportProgress = false, options) {
+        if (project_id === null || project_id === undefined) {
+            throw new Error('Required parameter project_id was null or undefined when calling projectsFunctionsList.');
+        }
+        let localVarQueryParameters = new HttpParams({ encoder: this.encoder });
+        if (page !== undefined && page !== null) {
+            localVarQueryParameters = this.addToHttpParams(localVarQueryParameters, page, 'page');
+        }
+        let localVarHeaders = this.defaultHeaders;
+        let localVarCredential;
+        // authentication (cookie) required
+        localVarCredential = this.configuration.lookupCredential('cookie');
+        if (localVarCredential) {
+        }
+        // authentication (token) required
+        localVarCredential = this.configuration.lookupCredential('token');
+        if (localVarCredential) {
+            localVarHeaders = localVarHeaders.set('Authorization', 'Bearer ' + localVarCredential);
+        }
+        let localVarHttpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+        let localVarHttpContext = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+        let responseType_ = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            }
+            else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            }
+            else {
+                responseType_ = 'blob';
+            }
+        }
+        let localVarPath = `/projects/${this.configuration.encodeParam({ name: "project_id", value: project_id, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: "uuid" })}/functions`;
+        return this.httpClient.request('get', `${this.configuration.basePath}${localVarPath}`, {
+            context: localVarHttpContext,
+            params: localVarQueryParameters,
+            responseType: responseType_,
+            withCredentials: this.configuration.withCredentials,
+            headers: localVarHeaders,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.12", ngImport: i0, type: FunctionsService, deps: [{ token: i1.HttpClient }, { token: BASE_PATH, optional: true }, { token: Configuration, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
+    static ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.12", ngImport: i0, type: FunctionsService, providedIn: 'root' });
+}
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.12", ngImport: i0, type: FunctionsService, decorators: [{
+            type: Injectable,
+            args: [{
+                    providedIn: 'root'
+                }]
+        }], ctorParameters: function () { return [{ type: i1.HttpClient }, { type: undefined, decorators: [{
+                    type: Optional
+                }, {
+                    type: Inject,
+                    args: [BASE_PATH]
+                }] }, { type: Configuration, decorators: [{
+                    type: Optional
+                }] }]; } });
+
+/**
+ * Chaos
+ * Central Management API - publicly exposed set of APIs for managing deployments
+ *
+ * The version of the OpenAPI document: 1.0.0
+ * Contact: support@qernal.com
+ *
+ * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
+ * https://openapi-generator.tech
+ * Do not edit the class manually.
+ */
+/* tslint:disable:no-unused-variable member-ordering */
 class HostsService {
     httpClient;
     basePath = 'https://chaos.qernal.com/v1';
@@ -1413,6 +1903,144 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.12", ngImpo
  * Do not edit the class manually.
  */
 /* tslint:disable:no-unused-variable member-ordering */
+class ProvidersService {
+    httpClient;
+    basePath = 'https://chaos.qernal.com/v1';
+    defaultHeaders = new HttpHeaders();
+    configuration = new Configuration();
+    encoder;
+    constructor(httpClient, basePath, configuration) {
+        this.httpClient = httpClient;
+        if (configuration) {
+            this.configuration = configuration;
+        }
+        if (typeof this.configuration.basePath !== 'string') {
+            if (Array.isArray(basePath) && basePath.length > 0) {
+                basePath = basePath[0];
+            }
+            if (typeof basePath !== 'string') {
+                basePath = this.basePath;
+            }
+            this.configuration.basePath = basePath;
+        }
+        this.encoder = this.configuration.encoder || new CustomHttpParameterCodec();
+    }
+    // @ts-ignore
+    addToHttpParams(httpParams, value, key) {
+        if (typeof value === "object" && value instanceof Date === false) {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
+        }
+        else {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
+        }
+        return httpParams;
+    }
+    addToHttpParamsRecursive(httpParams, value, key) {
+        if (value == null) {
+            return httpParams;
+        }
+        if (typeof value === "object") {
+            if (Array.isArray(value)) {
+                value.forEach(elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
+            }
+            else if (value instanceof Date) {
+                if (key != null) {
+                    httpParams = httpParams.append(key, value.toISOString().substring(0, 10));
+                }
+                else {
+                    throw Error("key may not be null if value is Date");
+                }
+            }
+            else {
+                Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(httpParams, value[k], key != null ? `${key}[${k}]` : k));
+            }
+        }
+        else if (key != null) {
+            httpParams = httpParams.append(key, value);
+        }
+        else {
+            throw Error("key may not be null if value is not object or array");
+        }
+        return httpParams;
+    }
+    providersGet(observe = 'body', reportProgress = false, options) {
+        let localVarHeaders = this.defaultHeaders;
+        let localVarCredential;
+        // authentication (cookie) required
+        localVarCredential = this.configuration.lookupCredential('cookie');
+        if (localVarCredential) {
+        }
+        // authentication (token) required
+        localVarCredential = this.configuration.lookupCredential('token');
+        if (localVarCredential) {
+            localVarHeaders = localVarHeaders.set('Authorization', 'Bearer ' + localVarCredential);
+        }
+        let localVarHttpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+        let localVarHttpContext = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+        let responseType_ = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            }
+            else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            }
+            else {
+                responseType_ = 'blob';
+            }
+        }
+        let localVarPath = `/providers`;
+        return this.httpClient.request('get', `${this.configuration.basePath}${localVarPath}`, {
+            context: localVarHttpContext,
+            responseType: responseType_,
+            withCredentials: this.configuration.withCredentials,
+            headers: localVarHeaders,
+            observe: observe,
+            reportProgress: reportProgress
+        });
+    }
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.12", ngImport: i0, type: ProvidersService, deps: [{ token: i1.HttpClient }, { token: BASE_PATH, optional: true }, { token: Configuration, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
+    static ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.12", ngImport: i0, type: ProvidersService, providedIn: 'root' });
+}
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.12", ngImport: i0, type: ProvidersService, decorators: [{
+            type: Injectable,
+            args: [{
+                    providedIn: 'root'
+                }]
+        }], ctorParameters: function () { return [{ type: i1.HttpClient }, { type: undefined, decorators: [{
+                    type: Optional
+                }, {
+                    type: Inject,
+                    args: [BASE_PATH]
+                }] }, { type: Configuration, decorators: [{
+                    type: Optional
+                }] }]; } });
+
+/**
+ * Chaos
+ * Central Management API - publicly exposed set of APIs for managing deployments
+ *
+ * The version of the OpenAPI document: 1.0.0
+ * Contact: support@qernal.com
+ *
+ * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
+ * https://openapi-generator.tech
+ * Do not edit the class manually.
+ */
+/* tslint:disable:no-unused-variable member-ordering */
 class SecretsService {
     httpClient;
     basePath = 'https://chaos.qernal.com/v1';
@@ -2163,7 +2791,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.12", ngImpo
                     type: Optional
                 }] }]; } });
 
-const APIS = [HostsService, OrganisationsService, ProjectsService, SecretsService, TokensService];
+const APIS = [FunctionsService, HostsService, OrganisationsService, ProjectsService, ProvidersService, SecretsService, TokensService];
 
 /**
  * Chaos
@@ -2224,6 +2852,119 @@ const APIS = [HostsService, OrganisationsService, ProjectsService, SecretsServic
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+
+var Function;
+(function (Function) {
+    Function.VersionEnum = {
+        _1_0_0: '1.0.0'
+    };
+})(Function || (Function = {}));
+
+var FunctionBody;
+(function (FunctionBody) {
+    FunctionBody.VersionEnum = {
+        _1_0_0: '1.0.0'
+    };
+})(FunctionBody || (FunctionBody = {}));
+
+/**
+ * Chaos
+ * Central Management API - publicly exposed set of APIs for managing deployments
+ *
+ * The version of the OpenAPI document: 1.0.0
+ * Contact: support@qernal.com
+ *
+ * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
+ * https://openapi-generator.tech
+ * Do not edit the class manually.
+ */
+const FunctionCompliance = {
+    soc2: 'soc2',
+    ipv6: 'ipv6'
+};
+
+/**
+ * Chaos
+ * Central Management API - publicly exposed set of APIs for managing deployments
+ *
+ * The version of the OpenAPI document: 1.0.0
+ * Contact: support@qernal.com
+ *
+ * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
+ * https://openapi-generator.tech
+ * Do not edit the class manually.
+ */
+
+/**
+ * Chaos
+ * Central Management API - publicly exposed set of APIs for managing deployments
+ *
+ * The version of the OpenAPI document: 1.0.0
+ * Contact: support@qernal.com
+ *
+ * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
+ * https://openapi-generator.tech
+ * Do not edit the class manually.
+ */
+
+/**
+ * Chaos
+ * Central Management API - publicly exposed set of APIs for managing deployments
+ *
+ * The version of the OpenAPI document: 1.0.0
+ * Contact: support@qernal.com
+ *
+ * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
+ * https://openapi-generator.tech
+ * Do not edit the class manually.
+ */
+
+/**
+ * Chaos
+ * Central Management API - publicly exposed set of APIs for managing deployments
+ *
+ * The version of the OpenAPI document: 1.0.0
+ * Contact: support@qernal.com
+ *
+ * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
+ * https://openapi-generator.tech
+ * Do not edit the class manually.
+ */
+var FunctionScaling;
+(function (FunctionScaling) {
+    FunctionScaling.TypeEnum = {
+        cpu: 'cpu',
+        memory: 'memory'
+    };
+})(FunctionScaling || (FunctionScaling = {}));
+
+/**
+ * Chaos
+ * Central Management API - publicly exposed set of APIs for managing deployments
+ *
+ * The version of the OpenAPI document: 1.0.0
+ * Contact: support@qernal.com
+ *
+ * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
+ * https://openapi-generator.tech
+ * Do not edit the class manually.
+ */
+
+/**
+ * Chaos
+ * Central Management API - publicly exposed set of APIs for managing deployments
+ *
+ * The version of the OpenAPI document: 1.0.0
+ * Contact: support@qernal.com
+ *
+ * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
+ * https://openapi-generator.tech
+ * Do not edit the class manually.
+ */
+const FunctionType = {
+    http: 'http',
+    worker: 'worker'
+};
 
 /**
  * Chaos
@@ -2265,6 +3006,30 @@ const HostVerificationStatus = {
     completed: 'completed',
     failed: 'failed'
 };
+
+/**
+ * Chaos
+ * Central Management API - publicly exposed set of APIs for managing deployments
+ *
+ * The version of the OpenAPI document: 1.0.0
+ * Contact: support@qernal.com
+ *
+ * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
+ * https://openapi-generator.tech
+ * Do not edit the class manually.
+ */
+
+/**
+ * Chaos
+ * Central Management API - publicly exposed set of APIs for managing deployments
+ *
+ * The version of the OpenAPI document: 1.0.0
+ * Contact: support@qernal.com
+ *
+ * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
+ * https://openapi-generator.tech
+ * Do not edit the class manually.
+ */
 
 /**
  * Chaos
@@ -2509,5 +3274,5 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.12", ngImpo
  * Generated bundle index. Do not edit.
  */
 
-export { APIS, BASE_PATH, COLLECTION_FORMATS, ChaosApiModule, Configuration, HostVerificationStatus, HostsService, OrganisationsService, ProjectsService, SecretCreateType, SecretMetaType, SecretsService, TokensService };
+export { APIS, BASE_PATH, COLLECTION_FORMATS, ChaosApiModule, Configuration, Function, FunctionBody, FunctionCompliance, FunctionScaling, FunctionType, FunctionsService, HostVerificationStatus, HostsService, OrganisationsService, ProjectsService, ProvidersService, SecretCreateType, SecretMetaType, SecretsService, TokensService };
 //# sourceMappingURL=openapi-chaos-typescript-angular-client.mjs.map
