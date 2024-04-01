@@ -16,9 +16,6 @@
     "@angular/core": "^16.0.0",
     "rxjs": "^7.4.0"
   },
-  "publishConfig": {
-    "registry": "https://github.com/qernal/openapi-chaos-typescript-angular-client"
-  },
   "module": "fesm2022/openapi-chaos-typescript-angular-client.mjs",
   "typings": "index.d.ts",
   "exports": {
