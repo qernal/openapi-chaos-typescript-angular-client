@@ -3275,4 +3275,4 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.12", ngImpo
  */
 
 export { APIS, BASE_PATH, COLLECTION_FORMATS, ChaosApiModule, Configuration, Function, FunctionBody, FunctionCompliance, FunctionScaling, FunctionType, FunctionsService, HostVerificationStatus, HostsService, OrganisationsService, ProjectsService, ProvidersService, SecretCreateType, SecretMetaType, SecretsService, TokensService };
-//# sourceMappingURL=openapi-chaos-typescript-angular-client.mjs.map
+//# sourceMappingURL=qernal-ngx-chaos-client.mjs.map

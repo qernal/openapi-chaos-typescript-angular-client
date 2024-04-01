@@ -1,4 +1,4 @@
-## openapi-chaos-typescript-angular-client@1.0.0
+## @qernal/ngx-chaos-client@1.0.0
 
 ### Building
 
@@ -19,7 +19,7 @@ Navigate to the folder of your consuming project and run one of next commands.
 _published:_
 
 ```
-npm install openapi-chaos-typescript-angular-client@1.0.0 --save
+npm install @qernal/ngx-chaos-client@1.0.0 --save
 ```
 
 _without publishing (not recommended):_
@@ -39,7 +39,7 @@ npm link
 
 In your project:
 ```
-npm link openapi-chaos-typescript-angular-client
+npm link @qernal/ngx-chaos-client
 ```
 
 __Note for Windows users:__ The Angular CLI has troubles to use linked npm packages.
@@ -54,7 +54,7 @@ In your Angular project:
 
 ```
 // without configuring providers
-import { ChaosApiModule } from 'openapi-chaos-typescript-angular-client';
+import { ChaosApiModule } from '@qernal/ngx-chaos-client';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -73,7 +73,7 @@ export class AppModule {}
 
 ```
 // configuring providers
-import { ChaosApiModule, Configuration, ConfigurationParameters } from 'openapi-chaos-typescript-angular-client';
+import { ChaosApiModule, Configuration, ConfigurationParameters } from '@qernal/ngx-chaos-client';
 
 export function apiConfigFactory (): Configuration {
   const params: ConfigurationParameters = {
@@ -93,7 +93,7 @@ export class AppModule {}
 
 ```
 // configuring providers with an authentication service that manages your access tokens
-import { ChaosApiModule, Configuration } from 'openapi-chaos-typescript-angular-client';
+import { ChaosApiModule, Configuration } from '@qernal/ngx-chaos-client';
 
 @NgModule({
     imports: [ ChaosApiModule ],
@@ -117,7 +117,7 @@ export class AppModule {}
 ```
 
 ```
-import { DefaultApi } from 'openapi-chaos-typescript-angular-client';
+import { DefaultApi } from '@qernal/ngx-chaos-client';
 
 export class AppComponent {
     constructor(private apiGateway: DefaultApi) { }
@@ -155,7 +155,7 @@ export class AppModule {
 If different than the generated base path, during app bootstrap, you can provide the base path to your service.
 
 ```
-import { BASE_PATH } from 'openapi-chaos-typescript-angular-client';
+import { BASE_PATH } from '@qernal/ngx-chaos-client';
 
 bootstrap(AppComponent, [
     { provide: BASE_PATH, useValue: 'https://your-web-service.com' },
@@ -164,7 +164,7 @@ bootstrap(AppComponent, [
 or
 
 ```
-import { BASE_PATH } from 'openapi-chaos-typescript-angular-client';
+import { BASE_PATH } from '@qernal/ngx-chaos-client';
 
 @NgModule({
     imports: [],
@@ -188,7 +188,7 @@ export const environment = {
 
 In the src/app/app.module.ts:
 ```
-import { BASE_PATH } from 'openapi-chaos-typescript-angular-client';
+import { BASE_PATH } from '@qernal/ngx-chaos-client';
 import { environment } from '../environments/environment';
 
 @NgModule({

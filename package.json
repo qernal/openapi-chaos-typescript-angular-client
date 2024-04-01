@@ -1,7 +1,7 @@
 {
-  "name": "openapi-chaos-typescript-angular-client",
+  "name": "@qernal/ngx-chaos-client",
   "version": "1.0.0",
-  "description": "OpenAPI client for openapi-chaos-typescript-angular-client",
+  "description": "OpenAPI client for @qernal/ngx-chaos-client",
   "author": "OpenAPI-Generator Contributors",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "@angular/core": "^16.0.0",
     "rxjs": "^7.4.0"
   },
-  "module": "fesm2022/openapi-chaos-typescript-angular-client.mjs",
+  "module": "fesm2022/qernal-ngx-chaos-client.mjs",
   "typings": "index.d.ts",
   "exports": {
     "./package.json": {
@@ -24,9 +24,9 @@
     },
     ".": {
       "types": "./index.d.ts",
-      "esm2022": "./esm2022/openapi-chaos-typescript-angular-client.mjs",
-      "esm": "./esm2022/openapi-chaos-typescript-angular-client.mjs",
-      "default": "./fesm2022/openapi-chaos-typescript-angular-client.mjs"
+      "esm2022": "./esm2022/qernal-ngx-chaos-client.mjs",
+      "esm": "./esm2022/qernal-ngx-chaos-client.mjs",
+      "default": "./fesm2022/qernal-ngx-chaos-client.mjs"
     }
   },
   "sideEffects": false,
