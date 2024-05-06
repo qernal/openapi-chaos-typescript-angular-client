@@ -29,14 +29,17 @@ export declare class ProjectsService implements ProjectsServiceInterface {
     organisationsProjectsList(organisation_id: string, page?: OrganisationsListPageParameter, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<ListProjectResponse>;
     organisationsProjectsList(organisation_id: string, page?: OrganisationsListPageParameter, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<ListProjectResponse>>;
     organisationsProjectsList(organisation_id: string, page?: OrganisationsListPageParameter, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<ListProjectResponse>>;
     /**
      * Create project
@@ -48,14 +51,17 @@ export declare class ProjectsService implements ProjectsServiceInterface {
     projectsCreate(ProjectBody?: ProjectBody, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<ProjectResponse>;
     projectsCreate(ProjectBody?: ProjectBody, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<ProjectResponse>>;
     projectsCreate(ProjectBody?: ProjectBody, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<ProjectResponse>>;
     /**
      * Delete project
@@ -67,14 +73,17 @@ export declare class ProjectsService implements ProjectsServiceInterface {
     projectsDelete(project_id: string, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<DeletedResponse>;
     projectsDelete(project_id: string, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<DeletedResponse>>;
     projectsDelete(project_id: string, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<DeletedResponse>>;
     /**
      * Get project
@@ -86,14 +95,17 @@ export declare class ProjectsService implements ProjectsServiceInterface {
     projectsGet(project_id: string, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<ProjectResponse>;
     projectsGet(project_id: string, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<ProjectResponse>>;
     projectsGet(project_id: string, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<ProjectResponse>>;
     /**
      * List projects
@@ -105,14 +117,17 @@ export declare class ProjectsService implements ProjectsServiceInterface {
     projectsList(page?: OrganisationsListPageParameter, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<ListProjectResponse>;
     projectsList(page?: OrganisationsListPageParameter, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<ListProjectResponse>>;
     projectsList(page?: OrganisationsListPageParameter, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<ListProjectResponse>>;
     /**
      * Update project
@@ -125,14 +140,17 @@ export declare class ProjectsService implements ProjectsServiceInterface {
     projectsUpdate(project_id: string, ProjectBodyPatch?: ProjectBodyPatch, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<ProjectResponse>;
     projectsUpdate(project_id: string, ProjectBodyPatch?: ProjectBodyPatch, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<ProjectResponse>>;
     projectsUpdate(project_id: string, ProjectBodyPatch?: ProjectBodyPatch, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<ProjectResponse>>;
     static ɵfac: i0.ɵɵFactoryDeclaration<ProjectsService, [null, { optional: true; }, { optional: true; }]>;
     static ɵprov: i0.ɵɵInjectableDeclaration<ProjectsService>;

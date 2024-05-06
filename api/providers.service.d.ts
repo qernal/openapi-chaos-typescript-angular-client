@@ -22,14 +22,17 @@ export declare class ProvidersService implements ProvidersServiceInterface {
     providersGet(observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<Array<ProviderInner>>;
     providersGet(observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<Array<ProviderInner>>>;
     providersGet(observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<Array<ProviderInner>>>;
     static ɵfac: i0.ɵɵFactoryDeclaration<ProvidersService, [null, { optional: true; }, { optional: true; }]>;
     static ɵprov: i0.ɵɵInjectableDeclaration<ProvidersService>;

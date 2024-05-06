@@ -29,14 +29,17 @@ export declare class TokensService implements TokensServiceInterface {
     authTokensCreate(AuthTokenBody: AuthTokenBody, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<AuthToken>;
     authTokensCreate(AuthTokenBody: AuthTokenBody, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<AuthToken>>;
     authTokensCreate(AuthTokenBody: AuthTokenBody, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<AuthToken>>;
     /**
      * Delete token
@@ -47,14 +50,17 @@ export declare class TokensService implements TokensServiceInterface {
     authTokensDelete(token_id: string, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<DeletedResponse>;
     authTokensDelete(token_id: string, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<DeletedResponse>>;
     authTokensDelete(token_id: string, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<DeletedResponse>>;
     /**
      * Get token information
@@ -65,14 +71,17 @@ export declare class TokensService implements TokensServiceInterface {
     authTokensGet(token_id: string, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<AuthTokenMeta>;
     authTokensGet(token_id: string, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<AuthTokenMeta>>;
     authTokensGet(token_id: string, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<AuthTokenMeta>>;
     /**
      * List all user auth tokens
@@ -83,14 +92,17 @@ export declare class TokensService implements TokensServiceInterface {
     authTokensList(page?: OrganisationsListPageParameter, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<ListAuthTokens>;
     authTokensList(page?: OrganisationsListPageParameter, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<ListAuthTokens>>;
     authTokensList(page?: OrganisationsListPageParameter, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<ListAuthTokens>>;
     /**
      * Update token
@@ -102,14 +114,17 @@ export declare class TokensService implements TokensServiceInterface {
     authTokensUpdate(token_id: string, AuthTokenPatch: AuthTokenPatch, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<AuthToken>;
     authTokensUpdate(token_id: string, AuthTokenPatch: AuthTokenPatch, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<AuthToken>>;
     authTokensUpdate(token_id: string, AuthTokenPatch: AuthTokenPatch, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<AuthToken>>;
     static ɵfac: i0.ɵɵFactoryDeclaration<TokensService, [null, { optional: true; }, { optional: true; }]>;
     static ɵprov: i0.ɵɵInjectableDeclaration<TokensService>;

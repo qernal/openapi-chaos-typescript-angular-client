@@ -29,14 +29,17 @@ export declare class HostsService implements HostsServiceInterface {
     projectsHostsCreate(project_id: string, HostBody: HostBody, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<Host>;
     projectsHostsCreate(project_id: string, HostBody: HostBody, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<Host>>;
     projectsHostsCreate(project_id: string, HostBody: HostBody, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<Host>>;
     /**
      * Delete specific host by hostname
@@ -48,14 +51,17 @@ export declare class HostsService implements HostsServiceInterface {
     projectsHostsDelete(project_id: string, hostname: string, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<DeletedResponse>;
     projectsHostsDelete(project_id: string, hostname: string, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<DeletedResponse>>;
     projectsHostsDelete(project_id: string, hostname: string, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<DeletedResponse>>;
     /**
      * Get specific host by hostname
@@ -67,14 +73,17 @@ export declare class HostsService implements HostsServiceInterface {
     projectsHostsGet(project_id: string, hostname: string, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<Host>;
     projectsHostsGet(project_id: string, hostname: string, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<Host>>;
     projectsHostsGet(project_id: string, hostname: string, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<Host>>;
     /**
      * List hosts for project
@@ -86,14 +95,17 @@ export declare class HostsService implements HostsServiceInterface {
     projectsHostsList(project_id: string, page?: OrganisationsListPageParameter, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<ListHosts>;
     projectsHostsList(project_id: string, page?: OrganisationsListPageParameter, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<ListHosts>>;
     projectsHostsList(project_id: string, page?: OrganisationsListPageParameter, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<ListHosts>>;
     /**
      * Update specific host by hostname
@@ -106,14 +118,17 @@ export declare class HostsService implements HostsServiceInterface {
     projectsHostsUpdate(project_id: string, hostname: string, HostBodyPatch: HostBodyPatch, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<Host>;
     projectsHostsUpdate(project_id: string, hostname: string, HostBodyPatch: HostBodyPatch, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<Host>>;
     projectsHostsUpdate(project_id: string, hostname: string, HostBodyPatch: HostBodyPatch, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<Host>>;
     /**
      * Schedule host verification task
@@ -125,14 +140,17 @@ export declare class HostsService implements HostsServiceInterface {
     projectsHostsVerifyCreate(project_id: string, hostname: string, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<Host>;
     projectsHostsVerifyCreate(project_id: string, hostname: string, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<Host>>;
     projectsHostsVerifyCreate(project_id: string, hostname: string, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<Host>>;
     static ɵfac: i0.ɵɵFactoryDeclaration<HostsService, [null, { optional: true; }, { optional: true; }]>;
     static ɵprov: i0.ɵɵInjectableDeclaration<HostsService>;

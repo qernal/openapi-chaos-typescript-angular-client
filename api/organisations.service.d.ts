@@ -27,14 +27,17 @@ export declare class OrganisationsService implements OrganisationsServiceInterfa
     organisationsCreate(OrganisationBody?: OrganisationBody, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<OrganisationResponse>;
     organisationsCreate(OrganisationBody?: OrganisationBody, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<OrganisationResponse>>;
     organisationsCreate(OrganisationBody?: OrganisationBody, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<OrganisationResponse>>;
     /**
      * Delete an organisation
@@ -46,14 +49,17 @@ export declare class OrganisationsService implements OrganisationsServiceInterfa
     organisationsDelete(organisation_id: string, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<DeletedResponse>;
     organisationsDelete(organisation_id: string, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<DeletedResponse>>;
     organisationsDelete(organisation_id: string, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<DeletedResponse>>;
     /**
      * Get an organisation
@@ -65,14 +71,17 @@ export declare class OrganisationsService implements OrganisationsServiceInterfa
     organisationsGet(organisation_id: string, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<OrganisationResponse>;
     organisationsGet(organisation_id: string, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<OrganisationResponse>>;
     organisationsGet(organisation_id: string, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<OrganisationResponse>>;
     /**
      * List organisations
@@ -84,14 +93,17 @@ export declare class OrganisationsService implements OrganisationsServiceInterfa
     organisationsList(page?: OrganisationsListPageParameter, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<ListOrganisationResponse>;
     organisationsList(page?: OrganisationsListPageParameter, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<ListOrganisationResponse>>;
     organisationsList(page?: OrganisationsListPageParameter, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<ListOrganisationResponse>>;
     /**
      * Update an organisation
@@ -104,14 +116,17 @@ export declare class OrganisationsService implements OrganisationsServiceInterfa
     organisationsUpdate(organisation_id: string, OrganisationBody?: OrganisationBody, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<OrganisationResponse>;
     organisationsUpdate(organisation_id: string, OrganisationBody?: OrganisationBody, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<OrganisationResponse>>;
     organisationsUpdate(organisation_id: string, OrganisationBody?: OrganisationBody, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<OrganisationResponse>>;
     static ɵfac: i0.ɵɵFactoryDeclaration<OrganisationsService, [null, { optional: true; }, { optional: true; }]>;
     static ɵprov: i0.ɵɵInjectableDeclaration<OrganisationsService>;

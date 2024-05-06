@@ -31,14 +31,17 @@ export declare class SecretsService implements SecretsServiceInterface {
     projectsSecretsCreate(project_id: string, SecretBody: SecretBody, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<SecretResponse>;
     projectsSecretsCreate(project_id: string, SecretBody: SecretBody, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<SecretResponse>>;
     projectsSecretsCreate(project_id: string, SecretBody: SecretBody, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<SecretResponse>>;
     /**
      * Delete project secret
@@ -51,14 +54,17 @@ export declare class SecretsService implements SecretsServiceInterface {
     projectsSecretsDelete(project_id: string, secret_name: string, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<DeletedResponse>;
     projectsSecretsDelete(project_id: string, secret_name: string, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<DeletedResponse>>;
     projectsSecretsDelete(project_id: string, secret_name: string, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<DeletedResponse>>;
     /**
      * Get project secret
@@ -71,14 +77,17 @@ export declare class SecretsService implements SecretsServiceInterface {
     projectsSecretsGet(project_id: string, secret_name: string, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<SecretMetaResponse>;
     projectsSecretsGet(project_id: string, secret_name: string, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<SecretMetaResponse>>;
     projectsSecretsGet(project_id: string, secret_name: string, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<SecretMetaResponse>>;
     /**
      * List project secrets of a specific type
@@ -92,14 +101,17 @@ export declare class SecretsService implements SecretsServiceInterface {
     projectsSecretsList(project_id: string, page?: OrganisationsListPageParameter, secret_type?: SecretMetaType, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<ListSecretResponse>;
     projectsSecretsList(project_id: string, page?: OrganisationsListPageParameter, secret_type?: SecretMetaType, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<ListSecretResponse>>;
     projectsSecretsList(project_id: string, page?: OrganisationsListPageParameter, secret_type?: SecretMetaType, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<ListSecretResponse>>;
     /**
      * Update project secret
@@ -113,14 +125,17 @@ export declare class SecretsService implements SecretsServiceInterface {
     projectsSecretsUpdate(project_id: string, secret_name: string, SecretBodyPatch: SecretBodyPatch, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<SecretResponse>;
     projectsSecretsUpdate(project_id: string, secret_name: string, SecretBodyPatch: SecretBodyPatch, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<SecretResponse>>;
     projectsSecretsUpdate(project_id: string, secret_name: string, SecretBodyPatch: SecretBodyPatch, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<SecretResponse>>;
     static ɵfac: i0.ɵɵFactoryDeclaration<SecretsService, [null, { optional: true; }, { optional: true; }]>;
     static ɵprov: i0.ɵɵInjectableDeclaration<SecretsService>;

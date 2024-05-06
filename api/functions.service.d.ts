@@ -27,14 +27,17 @@ export declare class FunctionsService implements FunctionsServiceInterface {
     functionsDelete(function_id: string, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<DeletedResponse>;
     functionsDelete(function_id: string, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<DeletedResponse>>;
     functionsDelete(function_id: string, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<DeletedResponse>>;
     /**
      * Get function (latest revision)
@@ -46,14 +49,17 @@ export declare class FunctionsService implements FunctionsServiceInterface {
     functionsGet(function_id: string, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<Function>;
     functionsGet(function_id: string, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<Function>>;
     functionsGet(function_id: string, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<Function>>;
     /**
      * Get a specific revision of a function
@@ -66,14 +72,17 @@ export declare class FunctionsService implements FunctionsServiceInterface {
     functionsRevisionsGet(function_id: string, function_revision_id: string, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<Function>;
     functionsRevisionsGet(function_id: string, function_revision_id: string, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<Function>>;
     functionsRevisionsGet(function_id: string, function_revision_id: string, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<Function>>;
     /**
      * List all revisions for a function
@@ -86,14 +95,17 @@ export declare class FunctionsService implements FunctionsServiceInterface {
     functionsRevisionsList(function_id: string, page?: OrganisationsListPageParameter, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<ListFunction>;
     functionsRevisionsList(function_id: string, page?: OrganisationsListPageParameter, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<ListFunction>>;
     functionsRevisionsList(function_id: string, page?: OrganisationsListPageParameter, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<ListFunction>>;
     /**
      * Update function
@@ -106,14 +118,17 @@ export declare class FunctionsService implements FunctionsServiceInterface {
     functionsUpdate(function_id: string, Function: Function, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<Function>;
     functionsUpdate(function_id: string, Function: Function, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<Function>>;
     functionsUpdate(function_id: string, Function: Function, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<Function>>;
     /**
      * Create function
@@ -126,14 +141,17 @@ export declare class FunctionsService implements FunctionsServiceInterface {
     projectsFunctionsCreate(project_id: string, FunctionBody: FunctionBody, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<Function>;
     projectsFunctionsCreate(project_id: string, FunctionBody: FunctionBody, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<Function>>;
     projectsFunctionsCreate(project_id: string, FunctionBody: FunctionBody, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<Function>>;
     /**
      * List all functions within a project
@@ -146,14 +164,17 @@ export declare class FunctionsService implements FunctionsServiceInterface {
     projectsFunctionsList(project_id: string, page?: OrganisationsListPageParameter, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<ListFunction>;
     projectsFunctionsList(project_id: string, page?: OrganisationsListPageParameter, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpResponse<ListFunction>>;
     projectsFunctionsList(project_id: string, page?: OrganisationsListPageParameter, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
+        transferCache?: boolean;
     }): Observable<HttpEvent<ListFunction>>;
     static ɵfac: i0.ɵɵFactoryDeclaration<FunctionsService, [null, { optional: true; }, { optional: true; }]>;
     static ɵprov: i0.ɵɵInjectableDeclaration<FunctionsService>;
