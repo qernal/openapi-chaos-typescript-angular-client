@@ -405,10 +405,10 @@ export class SecretsService {
             reportProgress: reportProgress
         });
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.3.7", ngImport: i0, type: SecretsService, deps: [{ token: i1.HttpClient }, { token: BASE_PATH, optional: true }, { token: i2.Configuration, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
-    static ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.3.7", ngImport: i0, type: SecretsService, providedIn: 'root' });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.3.8", ngImport: i0, type: SecretsService, deps: [{ token: i1.HttpClient }, { token: BASE_PATH, optional: true }, { token: i2.Configuration, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
+    static ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.3.8", ngImport: i0, type: SecretsService, providedIn: 'root' });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.3.7", ngImport: i0, type: SecretsService, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.3.8", ngImport: i0, type: SecretsService, decorators: [{
             type: Injectable,
             args: [{
                     providedIn: 'root'

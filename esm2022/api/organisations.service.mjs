@@ -381,10 +381,10 @@ export class OrganisationsService {
             reportProgress: reportProgress
         });
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.3.7", ngImport: i0, type: OrganisationsService, deps: [{ token: i1.HttpClient }, { token: BASE_PATH, optional: true }, { token: i2.Configuration, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
-    static ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.3.7", ngImport: i0, type: OrganisationsService, providedIn: 'root' });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.3.8", ngImport: i0, type: OrganisationsService, deps: [{ token: i1.HttpClient }, { token: BASE_PATH, optional: true }, { token: i2.Configuration, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
+    static ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.3.8", ngImport: i0, type: OrganisationsService, providedIn: 'root' });
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.3.7", ngImport: i0, type: OrganisationsService, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.3.8", ngImport: i0, type: OrganisationsService, decorators: [{
             type: Injectable,
             args: [{
                     providedIn: 'root'
