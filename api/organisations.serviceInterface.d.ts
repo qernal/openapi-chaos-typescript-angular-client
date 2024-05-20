@@ -42,8 +42,9 @@ export interface OrganisationsServiceInterface {
      * List organisations
      * List organisations
      * @param page Query parameters for pagination
+     * @param f_name Filter resource on name, if the value ends in an asterix it will be treated as a partial search otherwise, it\&#39;ll be an exact match
      */
-    organisationsList(page?: OrganisationsListPageParameter, extraHttpRequestParams?: any): Observable<ListOrganisationResponse>;
+    organisationsList(page?: OrganisationsListPageParameter, f_name?: string, extraHttpRequestParams?: any): Observable<ListOrganisationResponse>;
     /**
      * Update an organisation
      * Update an organisation

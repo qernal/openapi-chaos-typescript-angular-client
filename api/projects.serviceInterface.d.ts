@@ -50,8 +50,9 @@ export interface ProjectsServiceInterface {
      * List projects
      * Get all projects for this user, paginated
      * @param page Query parameters for pagination
+     * @param f_name Filter resource on name, if the value ends in an asterix it will be treated as a partial search otherwise, it\&#39;ll be an exact match
      */
-    projectsList(page?: OrganisationsListPageParameter, extraHttpRequestParams?: any): Observable<ListProjectResponse>;
+    projectsList(page?: OrganisationsListPageParameter, f_name?: string, extraHttpRequestParams?: any): Observable<ListProjectResponse>;
     /**
      * Update project
      * Update project

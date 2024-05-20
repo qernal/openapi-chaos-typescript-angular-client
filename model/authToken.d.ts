@@ -26,6 +26,9 @@ export interface AuthToken {
      * Name of token
      */
     name: string;
+    /**
+     * When the token expires
+     */
     expiry_at?: string;
     /**
      * Combined token required for requesting an access token, this field is only returned once on creation or update (during regeneration).

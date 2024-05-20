@@ -111,20 +111,21 @@ export declare class ProjectsService implements ProjectsServiceInterface {
      * List projects
      * Get all projects for this user, paginated
      * @param page Query parameters for pagination
+     * @param f_name Filter resource on name, if the value ends in an asterix it will be treated as a partial search otherwise, it\&#39;ll be an exact match
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    projectsList(page?: OrganisationsListPageParameter, observe?: 'body', reportProgress?: boolean, options?: {
+    projectsList(page?: OrganisationsListPageParameter, f_name?: string, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
         transferCache?: boolean;
     }): Observable<ListProjectResponse>;
-    projectsList(page?: OrganisationsListPageParameter, observe?: 'response', reportProgress?: boolean, options?: {
+    projectsList(page?: OrganisationsListPageParameter, f_name?: string, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
         transferCache?: boolean;
     }): Observable<HttpResponse<ListProjectResponse>>;
-    projectsList(page?: OrganisationsListPageParameter, observe?: 'events', reportProgress?: boolean, options?: {
+    projectsList(page?: OrganisationsListPageParameter, f_name?: string, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
         transferCache?: boolean;

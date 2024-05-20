@@ -20,7 +20,7 @@ export interface Host {
      */
     id: string;
     /**
-     * Hostname, this can be a root or a subdomain
+     * Hostname, this can be the root of a domain or a subdomain
      */
     host: string;
     /**
@@ -36,7 +36,7 @@ export interface Host {
      */
     read_only: boolean;
     /**
-     * If the host is disabled and so won\'t be routable
+     * If the host is disabled, then this host won\'t be accessible and so the deployments will not be routable
      */
     disabled: boolean;
     /**

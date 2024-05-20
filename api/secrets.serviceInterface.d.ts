@@ -27,7 +27,7 @@ export interface SecretsServiceInterface {
      * Create project secret
      * Create a new project secret
      * @param project_id Project ID reference
-     * @param SecretBody Create/Update any field
+     * @param SecretBody Create/Update any field  The example generated may only be for one of the secret types, look towards the payload section of the schema for further fields, values and examples.
      */
     projectsSecretsCreate(project_id: string, SecretBody: SecretBody, extraHttpRequestParams?: any): Observable<SecretResponse>;
     /**

@@ -17,7 +17,7 @@ import { SecretMetaType } from './secretMetaType';
  */
 export interface SecretMetaResponse {
     /**
-     * Project name
+     * Secret name
      */
     name: string;
     type: SecretMetaType;

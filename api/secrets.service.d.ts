@@ -24,7 +24,7 @@ export declare class SecretsService implements SecretsServiceInterface {
      * Create project secret
      * Create a new project secret
      * @param project_id Project ID reference
-     * @param SecretBody Create/Update any field
+     * @param SecretBody Create/Update any field  The example generated may only be for one of the secret types, look towards the payload section of the schema for further fields, values and examples.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
