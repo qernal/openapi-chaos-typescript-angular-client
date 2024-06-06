@@ -14,7 +14,7 @@
  */
 export interface SecretMetaResponseRegistryPayload {
     /**
-     * Registry domain
+     * Private registry domain/location, when using the private docker hub registry sepcify `docker.io` > Without http scheme
      */
     registry: string;
 }

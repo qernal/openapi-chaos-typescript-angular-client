@@ -14,7 +14,7 @@
  */
 export interface SecretRegistry {
     /**
-     * Url to private container repository (for docker registry use docker.io)
+     * Private registry domain/location, when using the private docker hub registry sepcify `docker.io` > Without http scheme
      */
     registry: string;
     /**
