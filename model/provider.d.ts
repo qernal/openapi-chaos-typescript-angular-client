@@ -9,12 +9,15 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { ProviderInnerLocations } from './providerInnerLocations';
-export interface ProviderInner {
-    id?: string;
+import { ProviderLocations } from './providerLocations';
+/**
+ * List of providers
+ */
+export interface Provider {
+    id: string;
     /**
      * Name of provider
      */
-    name?: string;
-    locations?: ProviderInnerLocations;
+    name: string;
+    locations: ProviderLocations;
 }

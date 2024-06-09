@@ -2089,7 +2089,11 @@ class ProvidersService {
         }
         return httpParams;
     }
-    providersGet(observe = 'body', reportProgress = false, options) {
+    providersList(page, observe = 'body', reportProgress = false, options) {
+        let localVarQueryParameters = new HttpParams({ encoder: this.encoder });
+        if (page !== undefined && page !== null) {
+            localVarQueryParameters = this.addToHttpParams(localVarQueryParameters, page, 'page');
+        }
         let localVarHeaders = this.defaultHeaders;
         let localVarCredential;
         // authentication (cookie) required
@@ -2135,6 +2139,7 @@ class ProvidersService {
         let localVarPath = `/providers`;
         return this.httpClient.request('get', `${this.configuration.basePath}${localVarPath}`, {
             context: localVarHttpContext,
+            params: localVarQueryParameters,
             responseType: responseType_,
             withCredentials: this.configuration.withCredentials,
             headers: localVarHeaders,

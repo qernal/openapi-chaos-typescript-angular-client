@@ -9,11 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { PaginationMeta } from './paginationMeta';
+import { Provider } from './provider';
 /**
- * Locations at varying levels this provider operates within
+ * List of providers
  */
-export interface ProviderInnerLocations {
-    continents?: Array<string>;
-    countries?: Array<string>;
-    cities?: Array<string>;
+export interface ListProviderResponse {
+    meta: PaginationMeta;
+    data: Array<Provider>;
 }

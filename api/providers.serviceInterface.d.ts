@@ -11,7 +11,8 @@
  */
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ProviderInner } from '../model/models';
+import { ListProviderResponse } from '../model/models';
+import { OrganisationsListPageParameter } from '../model/models';
 import { Configuration } from '../configuration';
 export interface ProvidersServiceInterface {
     defaultHeaders: HttpHeaders;
@@ -19,6 +20,7 @@ export interface ProvidersServiceInterface {
     /**
      * Get available providers
      * Retrieve a list of all providers with their respective deployed regions and cities.
+     * @param page Query parameters for pagination
      */
-    providersGet(extraHttpRequestParams?: any): Observable<Array<ProviderInner>>;
+    providersList(page?: OrganisationsListPageParameter, extraHttpRequestParams?: any): Observable<ListProviderResponse>;
 }
