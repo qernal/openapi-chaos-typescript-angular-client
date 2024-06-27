@@ -12,9 +12,10 @@
 /**
  * Host verification status
  */
-export type HostVerificationStatus = 'pending' | 'completed' | 'failed';
+export type HostVerificationStatus = 'pending' | 'already_verified' | 'completed' | 'failed';
 export declare const HostVerificationStatus: {
     pending: HostVerificationStatus;
+    already_verified: HostVerificationStatus;
     completed: HostVerificationStatus;
     failed: HostVerificationStatus;
 };

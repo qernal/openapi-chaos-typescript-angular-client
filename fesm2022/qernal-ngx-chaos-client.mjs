@@ -3189,6 +3189,7 @@ const FunctionType = {
  */
 const HostVerificationStatus = {
     pending: 'pending',
+    already_verified: 'already_verified',
     completed: 'completed',
     failed: 'failed'
 };
