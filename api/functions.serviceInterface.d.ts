@@ -21,6 +21,12 @@ export interface FunctionsServiceInterface {
     defaultHeaders: HttpHeaders;
     configuration: Configuration;
     /**
+     * Create function
+     * Create a new function
+     * @param FunctionBody Create/Update any field
+     */
+    functionsCreate(FunctionBody: FunctionBody, extraHttpRequestParams?: any): Observable<Function>;
+    /**
      * Delete function
      * Delete a function (and all revisions)
      * @param function_id Function ID reference
@@ -53,13 +59,6 @@ export interface FunctionsServiceInterface {
      * @param Function Update any field
      */
     functionsUpdate(function_id: string, Function: Function, extraHttpRequestParams?: any): Observable<Function>;
-    /**
-     * Create function
-     * Create a new function
-     * @param project_id Project ID reference
-     * @param FunctionBody Create/Update any field
-     */
-    projectsFunctionsCreate(project_id: string, FunctionBody: FunctionBody, extraHttpRequestParams?: any): Observable<Function>;
     /**
      * List all functions within a project
      * List all functions

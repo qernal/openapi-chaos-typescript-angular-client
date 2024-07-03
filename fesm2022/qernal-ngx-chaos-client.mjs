@@ -242,6 +242,72 @@ class FunctionsService {
         }
         return httpParams;
     }
+    functionsCreate(FunctionBody, observe = 'body', reportProgress = false, options) {
+        if (FunctionBody === null || FunctionBody === undefined) {
+            throw new Error('Required parameter FunctionBody was null or undefined when calling functionsCreate.');
+        }
+        let localVarHeaders = this.defaultHeaders;
+        let localVarCredential;
+        // authentication (cookie) required
+        localVarCredential = this.configuration.lookupCredential('cookie');
+        if (localVarCredential) {
+        }
+        // authentication (token) required
+        localVarCredential = this.configuration.lookupCredential('token');
+        if (localVarCredential) {
+            localVarHeaders = localVarHeaders.set('Authorization', 'Bearer ' + localVarCredential);
+        }
+        let localVarHttpHeaderAcceptSelected = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+        let localVarHttpContext = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+        let localVarTransferCache = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+        // to determine the Content-Type header
+        const consumes = [
+            'application/json'
+        ];
+        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
+        }
+        let responseType_ = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            }
+            else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            }
+            else {
+                responseType_ = 'blob';
+            }
+        }
+        let localVarPath = `/functions`;
+        return this.httpClient.request('post', `${this.configuration.basePath}${localVarPath}`, {
+            context: localVarHttpContext,
+            body: FunctionBody,
+            responseType: responseType_,
+            withCredentials: this.configuration.withCredentials,
+            headers: localVarHeaders,
+            observe: observe,
+            transferCache: localVarTransferCache,
+            reportProgress: reportProgress
+        });
+    }
     functionsDelete(function_id, observe = 'body', reportProgress = false, options) {
         if (function_id === null || function_id === undefined) {
             throw new Error('Required parameter function_id was null or undefined when calling functionsDelete.');
@@ -539,75 +605,6 @@ class FunctionsService {
         return this.httpClient.request('put', `${this.configuration.basePath}${localVarPath}`, {
             context: localVarHttpContext,
             body: Function,
-            responseType: responseType_,
-            withCredentials: this.configuration.withCredentials,
-            headers: localVarHeaders,
-            observe: observe,
-            transferCache: localVarTransferCache,
-            reportProgress: reportProgress
-        });
-    }
-    projectsFunctionsCreate(project_id, FunctionBody, observe = 'body', reportProgress = false, options) {
-        if (project_id === null || project_id === undefined) {
-            throw new Error('Required parameter project_id was null or undefined when calling projectsFunctionsCreate.');
-        }
-        if (FunctionBody === null || FunctionBody === undefined) {
-            throw new Error('Required parameter FunctionBody was null or undefined when calling projectsFunctionsCreate.');
-        }
-        let localVarHeaders = this.defaultHeaders;
-        let localVarCredential;
-        // authentication (cookie) required
-        localVarCredential = this.configuration.lookupCredential('cookie');
-        if (localVarCredential) {
-        }
-        // authentication (token) required
-        localVarCredential = this.configuration.lookupCredential('token');
-        if (localVarCredential) {
-            localVarHeaders = localVarHeaders.set('Authorization', 'Bearer ' + localVarCredential);
-        }
-        let localVarHttpHeaderAcceptSelected = options && options.httpHeaderAccept;
-        if (localVarHttpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts = [
-                'application/json'
-            ];
-            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (localVarHttpHeaderAcceptSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
-        }
-        let localVarHttpContext = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
-        let localVarTransferCache = options && options.transferCache;
-        if (localVarTransferCache === undefined) {
-            localVarTransferCache = true;
-        }
-        // to determine the Content-Type header
-        const consumes = [
-            'application/json'
-        ];
-        const httpContentTypeSelected = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
-        }
-        let responseType_ = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            }
-            else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            }
-            else {
-                responseType_ = 'blob';
-            }
-        }
-        let localVarPath = `/projects/${this.configuration.encodeParam({ name: "project_id", value: project_id, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: "uuid" })}/functions`;
-        return this.httpClient.request('post', `${this.configuration.basePath}${localVarPath}`, {
-            context: localVarHttpContext,
-            body: FunctionBody,
             responseType: responseType_,
             withCredentials: this.configuration.withCredentials,
             headers: localVarHeaders,

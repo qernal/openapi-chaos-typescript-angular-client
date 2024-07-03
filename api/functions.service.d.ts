@@ -18,6 +18,28 @@ export declare class FunctionsService implements FunctionsServiceInterface {
     private addToHttpParams;
     private addToHttpParamsRecursive;
     /**
+     * Create function
+     * Create a new function
+     * @param FunctionBody Create/Update any field
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    functionsCreate(FunctionBody: FunctionBody, observe?: 'body', reportProgress?: boolean, options?: {
+        httpHeaderAccept?: 'application/json';
+        context?: HttpContext;
+        transferCache?: boolean;
+    }): Observable<Function>;
+    functionsCreate(FunctionBody: FunctionBody, observe?: 'response', reportProgress?: boolean, options?: {
+        httpHeaderAccept?: 'application/json';
+        context?: HttpContext;
+        transferCache?: boolean;
+    }): Observable<HttpResponse<Function>>;
+    functionsCreate(FunctionBody: FunctionBody, observe?: 'events', reportProgress?: boolean, options?: {
+        httpHeaderAccept?: 'application/json';
+        context?: HttpContext;
+        transferCache?: boolean;
+    }): Observable<HttpEvent<Function>>;
+    /**
      * Delete function
      * Delete a function (and all revisions)
      * @param function_id Function ID reference
@@ -126,29 +148,6 @@ export declare class FunctionsService implements FunctionsServiceInterface {
         transferCache?: boolean;
     }): Observable<HttpResponse<Function>>;
     functionsUpdate(function_id: string, Function: Function, observe?: 'events', reportProgress?: boolean, options?: {
-        httpHeaderAccept?: 'application/json';
-        context?: HttpContext;
-        transferCache?: boolean;
-    }): Observable<HttpEvent<Function>>;
-    /**
-     * Create function
-     * Create a new function
-     * @param project_id Project ID reference
-     * @param FunctionBody Create/Update any field
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    projectsFunctionsCreate(project_id: string, FunctionBody: FunctionBody, observe?: 'body', reportProgress?: boolean, options?: {
-        httpHeaderAccept?: 'application/json';
-        context?: HttpContext;
-        transferCache?: boolean;
-    }): Observable<Function>;
-    projectsFunctionsCreate(project_id: string, FunctionBody: FunctionBody, observe?: 'response', reportProgress?: boolean, options?: {
-        httpHeaderAccept?: 'application/json';
-        context?: HttpContext;
-        transferCache?: boolean;
-    }): Observable<HttpResponse<Function>>;
-    projectsFunctionsCreate(project_id: string, FunctionBody: FunctionBody, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
         transferCache?: boolean;
