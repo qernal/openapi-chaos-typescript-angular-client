@@ -26,8 +26,9 @@ export interface ProjectsServiceInterface {
      * Get all the projects linked to a specific organisation
      * @param organisation_id Organisation ID reference
      * @param page Query parameters for pagination
+     * @param f_name Filter resource on name, if the value ends in an asterix it will be treated as a partial search otherwise, it\&#39;ll be an exact match
      */
-    organisationsProjectsList(organisation_id: string, page?: OrganisationsListPageParameter, extraHttpRequestParams?: any): Observable<ListProjectResponse>;
+    organisationsProjectsList(organisation_id: string, page?: OrganisationsListPageParameter, f_name?: string, extraHttpRequestParams?: any): Observable<ListProjectResponse>;
     /**
      * Create project
      * Create a new project

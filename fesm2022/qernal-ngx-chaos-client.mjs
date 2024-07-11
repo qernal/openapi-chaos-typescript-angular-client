@@ -1630,13 +1630,16 @@ class ProjectsService {
         }
         return httpParams;
     }
-    organisationsProjectsList(organisation_id, page, observe = 'body', reportProgress = false, options) {
+    organisationsProjectsList(organisation_id, page, f_name, observe = 'body', reportProgress = false, options) {
         if (organisation_id === null || organisation_id === undefined) {
             throw new Error('Required parameter organisation_id was null or undefined when calling organisationsProjectsList.');
         }
         let localVarQueryParameters = new HttpParams({ encoder: this.encoder });
         if (page !== undefined && page !== null) {
             localVarQueryParameters = this.addToHttpParams(localVarQueryParameters, page, 'page');
+        }
+        if (f_name !== undefined && f_name !== null) {
+            localVarQueryParameters = this.addToHttpParams(localVarQueryParameters, f_name, 'f_name');
         }
         let localVarHeaders = this.defaultHeaders;
         let localVarCredential;
