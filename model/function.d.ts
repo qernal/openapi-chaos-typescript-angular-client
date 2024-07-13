@@ -70,7 +70,7 @@ export interface Function {
     /**
      * Tags to limit deployment
      */
-    compliance?: Array<FunctionCompliance>;
+    compliance: Array<FunctionCompliance>;
 }
 export declare namespace Function {
     type VersionEnum = '1.0.0';
