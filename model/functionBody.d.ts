@@ -62,7 +62,7 @@ export interface FunctionBody {
     /**
      * Tags to limit deployment
      */
-    compliance?: Array<FunctionCompliance>;
+    compliance: Array<FunctionCompliance>;
 }
 export declare namespace FunctionBody {
     type VersionEnum = '1.0.0';
