@@ -1399,14 +1399,11 @@ class MetricsService {
         }
         return httpParams;
     }
-    metricsAggregationsList(metric_type, page, f_project, f_function, f_timestamps, f_histogram_interval, observe = 'body', reportProgress = false, options) {
+    metricsAggregationsList(metric_type, f_project, f_function, f_timestamps, f_histogram_interval, observe = 'body', reportProgress = false, options) {
         if (metric_type === null || metric_type === undefined) {
             throw new Error('Required parameter metric_type was null or undefined when calling metricsAggregationsList.');
         }
         let localVarQueryParameters = new HttpParams({ encoder: this.encoder });
-        if (page !== undefined && page !== null) {
-            localVarQueryParameters = this.addToHttpParams(localVarQueryParameters, page, 'page');
-        }
         if (f_project !== undefined && f_project !== null) {
             localVarQueryParameters = this.addToHttpParams(localVarQueryParameters, f_project, 'f_project');
         }
@@ -1461,7 +1458,7 @@ class MetricsService {
                 responseType_ = 'blob';
             }
         }
-        let localVarPath = `/metrics/aggregations/${this.configuration.encodeParam({ name: "metric_type", value: metric_type, in: "path", style: "simple", explode: false, dataType: "'httprequests' | 'resourcestats'", dataFormat: undefined })}`;
+        let localVarPath = `/metrics/aggregations/`;
         return this.httpClient.request('get', `${this.configuration.basePath}${localVarPath}`, {
             context: localVarHttpContext,
             params: localVarQueryParameters,
