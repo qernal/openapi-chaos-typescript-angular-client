@@ -17,7 +17,7 @@ export declare class MetricsService implements MetricsServiceInterface {
     /**
      * Get metrics
      * Retrieve metrics for a specific project or function. Use the query parameter to request a metrics report.  &gt; Note: Metrics are always returned in a descending order based on the timestamp.
-     * @param metric_type Metric aggregation type, types can be used with either a project or a function filter.  - httprequests: Aggregated HTTP requests - resourcestats: Aggregated resource stats (such as CPU, Memory and Network)  &gt; Note: aggregations cannot return more than 300 data points
+     * @param metric_aggregation_type Metric aggregation type, types can be used with either a project or a function filter.  - httprequests: Aggregated HTTP requests - resourcestats: Aggregated resource stats (such as CPU, Memory and Network)  &gt; Note: aggregations cannot return more than 300 data points
      * @param f_project Project uuid reference
      * @param f_function Function uuid reference
      * @param f_timestamps Timestamp restriction for query
@@ -25,17 +25,17 @@ export declare class MetricsService implements MetricsServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    metricsAggregationsList(metric_type: 'httprequests' | 'resourcestats', f_project?: string, f_function?: string, f_timestamps?: LogsListFTimestampsParameter, f_histogram_interval?: number, observe?: 'body', reportProgress?: boolean, options?: {
+    metricsAggregationsList(metric_aggregation_type: 'httprequests' | 'resourcestats', f_project?: string, f_function?: string, f_timestamps?: LogsListFTimestampsParameter, f_histogram_interval?: number, observe?: 'body', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
         transferCache?: boolean;
     }): Observable<MetricsAggregationsList200Response>;
-    metricsAggregationsList(metric_type: 'httprequests' | 'resourcestats', f_project?: string, f_function?: string, f_timestamps?: LogsListFTimestampsParameter, f_histogram_interval?: number, observe?: 'response', reportProgress?: boolean, options?: {
+    metricsAggregationsList(metric_aggregation_type: 'httprequests' | 'resourcestats', f_project?: string, f_function?: string, f_timestamps?: LogsListFTimestampsParameter, f_histogram_interval?: number, observe?: 'response', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
         transferCache?: boolean;
     }): Observable<HttpResponse<MetricsAggregationsList200Response>>;
-    metricsAggregationsList(metric_type: 'httprequests' | 'resourcestats', f_project?: string, f_function?: string, f_timestamps?: LogsListFTimestampsParameter, f_histogram_interval?: number, observe?: 'events', reportProgress?: boolean, options?: {
+    metricsAggregationsList(metric_aggregation_type: 'httprequests' | 'resourcestats', f_project?: string, f_function?: string, f_timestamps?: LogsListFTimestampsParameter, f_histogram_interval?: number, observe?: 'events', reportProgress?: boolean, options?: {
         httpHeaderAccept?: 'application/json';
         context?: HttpContext;
         transferCache?: boolean;
