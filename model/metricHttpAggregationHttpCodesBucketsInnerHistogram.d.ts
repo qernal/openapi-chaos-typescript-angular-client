@@ -9,13 +9,13 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { MetricResourceAggregationResourcesBucketsInner } from './metricResourceAggregationResourcesBucketsInner';
+import { MetricResourceAggregationResourcesBucketsInnerHistogramBucketsInner } from './metricResourceAggregationResourcesBucketsInnerHistogramBucketsInner';
 /**
  * Histogram of http status code usage
  */
 export interface MetricHttpAggregationHttpCodesBucketsInnerHistogram {
     /**
-     * Array of unqiue resources
+     * Array of resource usage by interval  > Note: A metric will have either a `counter` or `gauge` value
      */
-    buckets?: Array<MetricResourceAggregationResourcesBucketsInner>;
+    buckets?: Array<MetricResourceAggregationResourcesBucketsInnerHistogramBucketsInner>;
 }
